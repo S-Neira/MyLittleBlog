@@ -9,7 +9,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = PostModel::all();
+        $posts = PostModel::paginate(3);
         return view('index', compact('posts'));
+    }
+
+    public function posts(){
+        $posts = PostModel::latest()->paginate(5);
+        return view('posts', compact('posts'));
     }
 }

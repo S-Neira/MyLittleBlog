@@ -1,0 +1,16 @@
+@use 'variables' as v;
+
+.botones-paginacion{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    a:hover{
+        color: v.$secundary;
+    }
+
+    .disabled:hover{
+        color: v.$text;
+    }
+}
+

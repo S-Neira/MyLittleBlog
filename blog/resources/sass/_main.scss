@@ -1,0 +1,86 @@
+@use 'variables' as v;
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+
+    .contact-info{
+        margin-top: 2rem;
+        border-top: 1px solid #000;
+
+        h3{
+            font-size: 2rem;
+        }
+
+        p{
+            font-size: medium;
+            font-weight: normal;
+        }
+        
+
+        .contacto{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 10px;
+
+            .icono{
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+    }
+
+    .sidebar{
+
+        ul{
+            margin-top: 30px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        li{
+            list-style-type: none;         
+            font-size: 3vw;
+        }
+    }
+
+
+    img {
+        max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
+        height: auto; /* Mantiene la proporción */
+        object-fit: cover; /* Escala y recorta la imagen si es necesario */
+    }
+
+    aside{
+        display: flex;
+        flex-direction: column;
+
+        .imagenes{
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            overflow: hidden; /* Recorta cualquier parte de la imagen que se desborde */
+            width: 100%;
+            gap: 1rem;
+            position: relative;
+            top: -50px;
+        }
+
+        .posts{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .content{
+            position: relative;
+            top: -20px;
+            text-align: justify;
+        }
+
+    }
+}
+

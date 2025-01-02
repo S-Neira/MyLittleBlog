@@ -1,0 +1,32 @@
+@use 'variables' as v;
+
+.header{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    p{
+        text-align: justify;
+    }
+
+}
+
+.logo{
+    //display
+    display: flex;
+    flex-direction: column;
+    font-family: v.$primary-font;
+    color: v.$text;
+    font-weight: bold;
+    font-size: 2rem;
+
+    .logo-blog{
+        position: relative;
+        top:-20px;
+    }
+}
+
+.nav{
+    a:hover{
+        color: v.$secundary;
+    }
+}

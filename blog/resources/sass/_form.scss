@@ -1,0 +1,25 @@
+@use 'variables' as v;
+
+.contenedor-form{
+    border: 1px solid #000;
+    margin: 0 25%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 10px;
+
+    legend{
+        font-size: large;
+    }
+    
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 70%;
+    }
+}

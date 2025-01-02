@@ -1,0 +1,21 @@
+@use 'variables' as v;
+
+.info-personal{
+
+    display: flex;
+    gap: 20px;
+
+    fieldset{
+        border: none;
+    }
+}
+
+.info-register{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.register-button{
+    padding: 3px 20px;
+}

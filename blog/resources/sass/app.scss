@@ -1,0 +1,49 @@
+@use 'variables' as v;
+@import 'normalize';
+@import 'header';
+@import 'nav';
+@import 'main';
+@import 'form';
+@import 'register';
+@import 'posts';
+
+
+// Definiciones globales
+
+body{
+    font-family: v.$secundary-font;
+    color: v.$text;
+    background-color: v.$primary;
+    text-align: justify;
+}
+
+h1{
+    font-family: v.$primary-font;
+    color: v.$text;
+    margin: 0;
+}
+
+a, button{
+    font-family: v.$button-font;
+    color: v.$text;
+    text-decoration: none;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer{
+    margin-top: 50px;
+    text-align: center;
+}
+
+fieldset{
+    border: none;
+}
+
+
+
