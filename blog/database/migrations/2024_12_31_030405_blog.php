@@ -17,14 +17,8 @@ return new class extends Migration
             $table->text('content');
             $table->string('slug');
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('category_id')->nullable()->constrained();
+            $table->string('category');
             $table->boolean('is_published')->default(true);
-            $table->timestamps();
-        });
-
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
             $table->timestamps();
         });
 
@@ -34,7 +28,7 @@ return new class extends Migration
             $table->foreignId('post_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
-        });
+        }); 
 
         Schema::create('tags', function (Blueprint $table) {
             $table->id();

@@ -10,10 +10,9 @@
 
     <nav class="nav">
         <ul>
-            <li><a href="{{route('posts')}}">Posts</a></li>
-            <li><a href="{{route('login')}}">Iniciar Sesion</a></li>
-            <li><a href="https://github.com/S-Neira/Me">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="">Crear Post</a></li>
+            <li><a href="">Administrar tus Post</a></li>
+            <li><a href="">Cerrar Sesión</a></li>
         </ul>
     </nav>
 </div>

@@ -22,19 +22,19 @@
                 </div>
     
                 <div class="form-group">
-                    <label for="last-name">Apellido</label>
-                    <input class="input" type="text" name="name" id="last-name" required>
+                    <label for="lastname">Apellido</label>
+                    <input class="input" type="text" name="lastname" id="lastname" required>
                 </div>
             </fieldset>
 
             <div class="form-group">
-                <label for="last-name">Nombre Usuario</label>
-                <input class="input" type="text" name="name" id="last-name" required>
+                <label for="email">Correo Electrónico</label>
+                <input class="input" type="email" name="email" id="email" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input class="input" type="email" name="email" id="email" required>
+                <label for="last-name">Contraseña</label>
+                <input class="input" type="password" name="password" id="username" required>
             </div>
 
             <input class="register-button" type="submit" value="Registrar">

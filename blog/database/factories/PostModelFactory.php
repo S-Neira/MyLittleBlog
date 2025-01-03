@@ -22,7 +22,7 @@ class PostModelFactory extends Factory
             'content' => $this->faker->paragraphs(3, true),
             'slug' => $this->faker->slug,
             'user_id' => User::factory(),
-            'category_id' => $this->faker->numberBetween(1, 10),
+            'category' => $this->faker->word,
             'is_published' => $this->faker->boolean(90),
         ];
     }

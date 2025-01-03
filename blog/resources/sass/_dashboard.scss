@@ -1,0 +1,42 @@
+@use 'variables' as v;
+
+#mensaje-sin-posts{
+    font-family: v.$primary-font;
+    position: relative;
+    top: -10px;
+}
+
+.crear-post{
+    padding: 5px 20px;
+    border: 2px solid v.$text;
+}
+
+.crud-post{
+    a{
+        margin-right: 10px;
+    }   
+
+    a:hover{
+        color: v.$secundary;
+    }
+}
+
+.crear-post:hover{
+    background-color: darken($color: white, $amount: 20%);
+}
+
+.boton-crear{
+
+    button{
+        margin-top: 20px;
+        border: 2px solid v.$text;
+        border-radius: 5px;
+        padding: 5px 20px;
+
+    }
+
+    button:hover{
+        background-color: v.$secundary;
+        color: white;
+    }
+}
