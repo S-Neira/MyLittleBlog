@@ -40,6 +40,10 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->route('dashboard', ['id' => Auth::id()]);
+        } else{
+            return back()->withErrors([
+                'email' => 'Las credenciales no coinciden',
+            ]);
         }
     }
 }

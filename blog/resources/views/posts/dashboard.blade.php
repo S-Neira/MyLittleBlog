@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog | Dashboard</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/dashboard.js'])
 </head>
+
 <body class="contenedor">
-    <x-header-dashboard></x-header-dashboard>
+    <x-header></x-header>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>¿Estás seguro de eliminar este post?</h2>
+            <p>Esta acción no se puede deshacer.</p>
+            <div class="modal-buttons">
+                <button id="cancelButton" class="btn btn-secondary">No</button>
+                <button id="confirmButton" class="btn btn-danger">Sí</button>
+            </div>
+        </div>
+    </div>
 
     <main>
 
@@ -31,21 +43,38 @@
                 <h3>No tienes ningún post creado todavía. 😢</p>
             </div>
         @else
-            <!-- Lista de posts -->
-            @foreach ($userPosts as $post)
-                <div class="crud-post">
-                    <p>Creado en: {{$post->created_at}}</p>
-                    <h2>Título: {{ $post->title }}</h2>
-                    <h3>Categoría: {{$post->category}}</h3>
-                    <p>Contenido: {{ $post->content }}</p>
-                    <a href="{{ route('edit', $post->id) }}">Editar</a>
-                    <a href="{{ route('delete', $post->id) }}">Eliminar</a>
+
+
+            <div class="posts">
+
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <h2>¿Estás seguro de eliminar este post?</h2>
+                        <p>Esta acción no se puede deshacer.</p>
+                        <div class="modal-buttons">
+                            <button id="cancelButton" class="btn btn-secondary">No</button>
+                            <button id="confirmButton" class="btn btn-danger">Sí</button>
+                        </div>
+                    </div>
                 </div>
-            @endforeach
+
+                <!-- Lista de posts -->
+                @foreach ($userPosts as $post)
+                    <div class="crud-post">
+                        <p>Creado en: {{$post->created_at}}</p>
+                        <h2>Título: {{ $post->title }}</h2>
+                        <h3>Categoría: {{$post->category}}</h3>
+                        <p>Contenido: {{ $post->content }}</p>
+                        <a href="{{ route('edit-form', $post->id) }}">Editar</a>
+                        <a class="delete-post" href="{{ route('delete', $post->id) }}">Eliminar</a>
+                       
+                    </div>
+                @endforeach
+            </div>
         @endif
 
-
-            
     </main>
+
+    <x-footer></x-footer>
 </body>
 </html>

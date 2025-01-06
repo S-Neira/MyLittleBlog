@@ -38,12 +38,51 @@ class PostController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect()->route('posts')->with('success', 'Post Creado');
+        return redirect()->route('dashboard', $user->id)->with('success', 'Post Creado');
     }
 
-    Public function createForm($id)
+    public function createForm($id)
     {
         $user = User::find($id);
         return view('posts.create', compact('user'));
+    }
+
+    public function editForm($id)
+    {
+        $post = PostModel::find($id);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $post = PostModel::find($id);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'slug' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'slug' => $request->slug,
+            'category' => $request->category,
+        ]);
+
+        return redirect()->route('dashboard', $post->user_id)->with('success', 'Post Actualizado');
+    }
+
+    public function delete($id)
+    {
+        $post = PostModel::find($id);
+        $post->delete();
+        return redirect()->route('dashboard', $post->user_id)->with('success', 'Post Eliminado');
+    }
+
+    public function show($slug)
+    {
+        $post = PostModel::where('slug', $slug)->firstOrFail();
+        return view('posts.show', compact('post'));
     }
 }

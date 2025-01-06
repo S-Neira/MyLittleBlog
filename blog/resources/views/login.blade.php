@@ -14,6 +14,15 @@
 
     <div class="contenedor-form">
 
+        @if ($errors->any())
+            <div class="error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form action="{{route('login')}}" class="login" method="POST">
             <legend>Iniciar Sesión</legend>

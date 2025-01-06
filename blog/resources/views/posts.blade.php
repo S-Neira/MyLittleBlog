@@ -19,7 +19,7 @@
                 <h3>Categoría: {{$post->category}}</h3>
                 <p>Autor: {{$post->user->name}} {{$post->user->lastname}}</p>
                 <p>{{ Str::limit($post->content, 150) }}</p>
-                <a href="{{ route('posts.show', $post->id) }}">Leer más</a>
+                <a href="{{ route('posts.show', $post->slug) }}">Leer más</a>
             </div>
         @endforeach
     </div>

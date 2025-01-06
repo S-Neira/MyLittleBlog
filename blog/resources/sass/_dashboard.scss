@@ -11,7 +11,27 @@
     border: 2px solid v.$text;
 }
 
+.posts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .modal{
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 50%;
+        height: 50%;
+        background-color: v.$primary;
+        align-items: center;
+    }
+}
+
 .crud-post{
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid v.$text;
+
     a{
         margin-right: 10px;
     }   
@@ -40,3 +60,4 @@
         color: white;
     }
 }
+

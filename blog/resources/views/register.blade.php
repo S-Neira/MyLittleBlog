@@ -11,38 +11,51 @@
     <x-header></x-header>
 
     <div class="contenedor-form">
-        <form action="{{route('register')}}" class="login register" method="POST">
+        @if ($errors->any())
+            <div class="error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('register') }}" class="login register" method="POST">
             <legend>Registrarse</legend>
             @csrf
 
             <fieldset class="info-personal">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input class="input" type="text" name="name" id="name" required>
+                    <input class="input" type="text" name="name" id="name" value="{{ old('name') }}" required>
                 </div>
     
                 <div class="form-group">
                     <label for="lastname">Apellido</label>
-                    <input class="input" type="text" name="lastname" id="lastname" required>
+                    <input class="input" type="text" name="lastname" id="lastname" value="{{ old('lastname') }}" required>
                 </div>
             </fieldset>
 
             <div class="form-group">
                 <label for="email">Correo Electrónico</label>
-                <input class="input" type="email" name="email" id="email" required>
+                <input class="input" type="email" name="email" id="email" value="{{ old('email') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="last-name">Contraseña</label>
-                <input class="input" type="password" name="password" id="username" required>
+                <label for="password">Contraseña</label>
+                <input class="input" type="password" name="password" id="password" required>
             </div>
 
-            <input class="register-button" type="submit" value="Registrar">
+            <div class="form-group">
+                <label for="password_confirmation">Confirmar Contraseña</label>
+                <input class="input" type="password" name="password_confirmation" id="password_confirmation" required>
+            </div>
 
+            <button type="submit">Crear Usuario</button>
         </form>
-   
+    </div>
 
-
-
+    <x-footer></x-footer>
 </body>
 </html>

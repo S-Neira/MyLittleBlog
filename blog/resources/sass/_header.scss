@@ -29,4 +29,16 @@
     a:hover{
         color: v.$secundary;
     }
+
+    .boton-cerrar-sesion{
+        border: none;
+        background-color: v.$primary;
+
+        &:hover{
+            color: v.$secundary;
+        }
+    }
+
+
 }
+

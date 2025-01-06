@@ -1,5 +1,14 @@
 @use 'variables' as v;
 
+.posts{
+    margin-bottom: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+    .post{
+        border-bottom: 1px solid v.$text;     
+        padding-bottom: 10px;
+    }
+}
+
 .botones-paginacion{
     display: flex;
     gap: 10px;
@@ -14,3 +23,11 @@
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

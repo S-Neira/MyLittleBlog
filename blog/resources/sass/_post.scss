@@ -1,0 +1,34 @@
+
+.contenedor-post{
+    margin-top: 20px;
+    border: 1px solid v.$text;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    -webkit-box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
+    box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
+}
+
+.boton-volver{
+    display: flex;
+    justify-content: center;
+    &:hover{
+        color: v.$secundary;
+    }
+}
+
+.contenedor-post {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
