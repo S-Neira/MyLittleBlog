@@ -14,6 +14,7 @@
         <h2>{{ $post->title }}</h1>
         <h3>Categoría: {{$post->category}}</h2>
         <p>Autor: {{$post->user->name}} {{$post->user->lastname}}</p>
+        <img class="imagen-post" src="{{ asset( $post->image) }}" alt="Imagen del post">
         <p>{{ $post->content }}</p>
     </div>
 

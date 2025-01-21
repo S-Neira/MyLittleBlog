@@ -30,6 +30,11 @@
                 </div>
 
                 <div class="form-group">
+                    <img src="{{ asset($post->image)}}" alt="Imagen del post">
+                    <input type="file" name="img" id="img">
+                </div>
+
+                <div class="form-group">
                     <label for="contenido">contenido</label>
                     <textarea class="input" name="content" id="contenido" cols="30" rows="10"> {{$post->content}} </textarea>
                 </div>

@@ -1,12 +1,42 @@
 @use 'variables' as v;
 
 .nav{
+
     ul{
         display: flex;
-        justify-content: space-evenly;
         margin-top: 30px;
         list-style-type: none;
         position: relative;
-        left: -100px;
+        bottom: -10px;
+        gap: 40px;
+        
+
+
+        @include v.mq-mobile{
+            bottom: 0;
+            margin-top: 0;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.nav-display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .boton-nav{
+        border: none;
+        background-color: v.$primary;
+        width: 50px;     
     }
 }

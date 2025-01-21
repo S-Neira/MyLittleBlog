@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('category');
             $table->boolean('is_published')->default(true);
+            $table->string('image');
             $table->timestamps();
         });
 

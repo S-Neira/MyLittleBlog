@@ -10,6 +10,10 @@
     -webkit-box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
     -moz-box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
     box-shadow: 11px 14px 26px -13px rgba(0,0,0,0.75);
+
+    @include v.mq-tablet{
+        margin: 0;
+    }
 }
 
 .login{

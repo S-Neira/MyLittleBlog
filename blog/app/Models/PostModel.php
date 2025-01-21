@@ -12,7 +12,7 @@ class PostModel extends Model
     use HasFactory, Notifiable;
 
     protected $table = 'posts';
-    protected $fillable = ['title', 'content', 'slug', 'user_id', 'category'];
+    protected $fillable = ['title', 'content', 'slug', 'user_id', 'category', 'image'];
 
     //definir las relaciones
 

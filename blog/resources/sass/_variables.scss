@@ -13,3 +13,17 @@ $secundary-element: #E5E5E5;
 $primary-font: 'Playfair Display', serif;
 $secundary-font: 'Reboto', sans-serif;
 $button-font: montserrat, sans-serif;
+
+// Media Queries
+
+@mixin mq-mobile{
+    @media (max-width: 480px){
+        @content;
+    }
+}
+
+@mixin mq-tablet{
+    @media (max-width:768px){
+        @content;
+    }
+}

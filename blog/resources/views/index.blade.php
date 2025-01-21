@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog | Inicio</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="preload" as="image" href="{{ asset('img/blog-optimize.webp') }}">
+    <link rel="preload" as="image" href="{{ asset('img/living-optimize.webp') }}">
+    <link rel="preload" as="image" href="{{ asset('img/cameras-optimize.webp') }}">
+    <link rel="preload" as="image" href="{{ asset('img/woman-optimize.webp') }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+
 </head>
 <body class="contenedor">
 
@@ -83,16 +92,16 @@
         <aside>
 
             <div class="imagenes">
-                <img class="imagen-principal" src="{{ asset('img/blog.jpg') }}" alt="imagen blog">
-                <img class="imagen-secundaria" src="{{ asset('img/living.jpg') }}" alt="imagen living">
+                <img class="imagen-principal" src="{{ asset('img/blog-optimize.webp') }}" alt="imagen blog" loading="lazy">
+                <img class="imagen-secundaria" src="{{ asset('img/living-optimize.webp') }}" alt="imagen living" loading="lazy">
             </div>
 
-            <h2>Ultimos Posts</h2>
+            <h2 id="ultimos-posts">Ultimos Posts</h2>
             <div class="posts">
 
                 <div class="imagenes-post">
-                    <img src="{{asset('img/cameras.jpg')}}" alt="foto camaras">
-                    <img src="{{asset('img/woman.jpg')}}" alt="foto mujer">
+                    <img src="{{asset('img/cameras-optimize.webp')}}" alt="foto camaras" loading="lazy">
+                    <img src="{{asset('img/woman-optimize.webp')}}" alt="foto mujer" loading="lazy">
                 </div>
 
                 <div class="content">

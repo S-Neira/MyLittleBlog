@@ -5,22 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog | Dashboard</title>
-    @vite(['resources/sass/app.scss', 'resources/js/dashboard.js'])
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    @vite(['resources/sass/app.scss', 'resources/js/dashboard.js', 'resources/js/app.js'])
+
 </head>
 
 <body class="contenedor">
     <x-header></x-header>
-
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <h2>¿Estás seguro de eliminar este post?</h2>
-            <p>Esta acción no se puede deshacer.</p>
-            <div class="modal-buttons">
-                <button id="cancelButton" class="btn btn-secondary">No</button>
-                <button id="confirmButton" class="btn btn-danger">Sí</button>
-            </div>
-        </div>
-    </div>
 
     <main>
 
@@ -47,27 +38,32 @@
 
             <div class="posts">
 
-                <div id="deleteModal" class="modal">
-                    <div class="modal-content">
-                        <h2>¿Estás seguro de eliminar este post?</h2>
-                        <p>Esta acción no se puede deshacer.</p>
-                        <div class="modal-buttons">
-                            <button id="cancelButton" class="btn btn-secondary">No</button>
-                            <button id="confirmButton" class="btn btn-danger">Sí</button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Lista de posts -->
                 @foreach ($userPosts as $post)
-                    <div class="crud-post">
+                    <div
+                    class="crud-post"
+                    x-data="{visible:false}"
+                    >
                         <p>Creado en: {{$post->created_at}}</p>
                         <h2>Título: {{ $post->title }}</h2>
                         <h3>Categoría: {{$post->category}}</h3>
                         <p>Contenido: {{ $post->content }}</p>
                         <a href="{{ route('edit-form', $post->id) }}">Editar</a>
-                        <a class="delete-post" href="{{ route('delete', $post->id) }}">Eliminar</a>
-                       
+                        <a @click.prevent="visible=true" class="delete-post" href="#">Eliminar</a>
+
+                        <template x-teleport="body">
+                            <div x-show="visible" id="deleteModal" class="modal">
+                                <div x-show="visible" x-transition class="modal-content">
+                                    <h2>¿Estás seguro de eliminar este post?</h2>
+                                    <p>Esta acción no se puede deshacer.</p>
+                                    <div class="modal-buttons">
+                                        <button @click="visible = false" id="cancelButton" class="btn btn-secondary">No</button>
+                                        <a id="confirmButton" href="{{ route('delete', $post->id) }}" class="btn btn-danger">Sí</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
                     </div>
                 @endforeach
             </div>

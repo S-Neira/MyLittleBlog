@@ -10,8 +10,19 @@
 <body class="contenedor">
     <x-header></x-header>
 
+        @if ($errors->any())
+            <div class="error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
         <div class="contenedor-form">
-            <form class="login" method="POST" action="{{route('create', $user->id)}}">
+            <form class="login" method="POST" action="{{route('create', $user->id)}}"  enctype="multipart/form-data">
                 <legend>Crear Post</legend>
                 @csrf
                 <div class="form-group">
@@ -27,6 +38,11 @@
                 <div class="form-group">
                     <label for="slug">slug</label>
                     <input class="input" type="text" name="slug" id="slug">
+                </div>
+
+                <div class="form-group">
+                    <label for="img">Imagen</label>
+                    <input class="input" type="file" name="img" id="img" accept="image/*" required>
                 </div>
 
                 <div class="form-group">

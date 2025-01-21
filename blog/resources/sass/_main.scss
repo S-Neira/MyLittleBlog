@@ -5,6 +5,12 @@ main{
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
 
+    @include v.mq-tablet{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
     .contact-info{
         margin-top: 2rem;
         border-top: 1px solid #000;
@@ -34,6 +40,12 @@ main{
 
     .sidebar{
 
+        @include v.mq-tablet{
+            margin-top: 30px;
+            text-align: center;
+
+        }
+
         ul{
             margin-top: 30px;
             padding: 0;
@@ -46,8 +58,22 @@ main{
             list-style-type: none;         
             font-size: 3vw;
         }
+
+        @include v.mq-tablet{
+            li{
+                text-align: center;
+                font-size: 200%;
+            }
+            
+        }
+
     }
 
+    #ultimos-posts{
+        margin-top: 0;
+        position: relative;
+        top: -10px;
+    }
 
     img {
         max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
@@ -67,6 +93,10 @@ main{
             gap: 1rem;
             position: relative;
             top: -50px;
+
+            @include v.mq-tablet{
+                margin-top: 30px;   
+            }
         }
 
         .posts{

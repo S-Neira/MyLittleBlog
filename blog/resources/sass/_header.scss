@@ -4,6 +4,14 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
 
+    @include v.mq-tablet{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
     p{
         text-align: justify;
     }
@@ -26,6 +34,7 @@
 }
 
 .nav{
+
     a:hover{
         color: v.$secundary;
     }
@@ -38,7 +47,6 @@
             color: v.$secundary;
         }
     }
-
 
 }
 

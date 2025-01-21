@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\OptimizeImageMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index'])->name('index');
@@ -26,6 +27,9 @@ Route::post('/post/create/{id}', [PostController::class, 'create'])->name('creat
 Route::get('/post/edit/{id}', [PostController::class, 'editForm'])->name('edit-form');
 Route::post('/post/edit/{id}', [PostController::class, 'edit'])->name('edit');
 Route::get('/post/delete/{id}', [PostController::class, 'delete'])->name('delete');
+
+// Search functionality
+Route::post('/post/search', [PostController::class, 'search'])->name('search');
 
 // autentication routes
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

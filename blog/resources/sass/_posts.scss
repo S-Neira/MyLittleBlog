@@ -6,6 +6,10 @@
     .post{
         border-bottom: 1px solid v.$text;     
         padding-bottom: 10px;
+
+        a:hover{
+            color: v.$secundary;
+        }
     }
 }
 
@@ -31,3 +35,36 @@
         opacity: 1;
     }
 }
+
+.main-posts{
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-busqueda{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .formulario-busqueda{
+
+        .boton-busqueda{
+            margin-left: 3px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: small;
+            border: 2px solid v.$text;
+            border-radius: 5px;
+            padding: 3px 5px;
+            font-family: v.$button-font;
+        }
+        
+        .boton-busqueda:hover{
+            background-color: v.$secundary;
+            color: white;
+        }
+    }
+}
+
+
+

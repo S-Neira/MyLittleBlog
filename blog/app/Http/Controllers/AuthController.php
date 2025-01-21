@@ -2,23 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     /**
-     * Cierra la sesión del usuario.
+     * Cierra la sesión del usuario y elimina la cuenta.
      */
     public function logout(Request $request)
     {
-        Auth::logout(); // Cierra la sesión del usuario
+        // Obtener el usuario antes de cerrar sesión
+        $user = User::find(Auth::id());
 
-        // Invalidar la sesión actual
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        if ($user) {
+            // Eliminar los posts del usuario
+            $userPosts = PostModel::where('user_id', $user->id)->get();
+            foreach ($userPosts as $post) {
+                $post->delete();
+            }
 
-        // Redirige a la página de inicio o login
-        return redirect()->route('index')->with('success', 'Has cerrado sesión correctamente.');
+            // Eliminar el usuario
+            $user->delete();
+
+            // Invalidar y regenerar la sesión
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            // Cerrar sesión
+            Auth::logout();
+        }
+
+        // Redirige a la página de inicio
+        return redirect()->route('index')->with('success', 'Tu cuenta y posts han sido eliminados.');
     }
 }
